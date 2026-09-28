@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FamiliaFund · A program of LaFamilia Foundation</title>
-<meta name="description" content="We back side hustlers turning the AI labor shift into generational wealth. A charitable program of LaFamilia Foundation.">
+<meta name="description" content="We back side hustlers turning the AI labor shift into generational wealth.">
 <meta name="theme-color" content="#0A0A0A">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://familiafund.vc/">
 <meta property="og:site_name" content="FamiliaFund">
 <meta property="og:title" content="FamiliaFund · A program of LaFamilia Foundation">
-<meta property="og:description" content="We back side hustlers turning the AI labor shift into generational wealth. A charitable program of LaFamilia Foundation.">
+<meta property="og:description" content="We back side hustlers turning the AI labor shift into generational wealth.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FamiliaFund · A program of LaFamilia Foundation">
-<meta name="twitter:description" content="We back side hustlers turning the AI labor shift into generational wealth. A charitable program of LaFamilia Foundation.">
+<meta name="twitter:description" content="We back side hustlers turning the AI labor shift into generational wealth.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -47,26 +47,21 @@ em.g{font-style:italic;color:var(--deep)}
 .hero{position:relative;overflow:hidden;display:flex;flex-direction:column}
 .hero-mark{position:absolute;right:-160px;top:40px;width:820px;height:820px;opacity:.16;pointer-events:none}
 .nav{position:relative;height:84px;display:flex;align-items:center;gap:40px}
+.logo svg{flex-shrink:0}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white);font-size:20px;font-weight:600;letter-spacing:-.01em}
 .nav-links{flex-grow:1;display:flex;justify-content:flex-end;gap:32px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .nav-links a{text-decoration:none;color:rgba(255,255,255,.7)}
 .nav-links a:hover{color:var(--white)}
-.nav-cta{height:44px;padding:0 22px;background:var(--green);color:var(--black);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .hero-main{position:relative;flex-grow:1;padding-top:88px;padding-bottom:72px;display:flex;flex-direction:column;gap:32px}
 .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
 .hero h1{max-width:1180px;font-family:var(--serif);font-weight:400;font-size:clamp(46px,7.2vw,104px);line-height:1;letter-spacing:-.02em}
 .hero h1 em{font-style:italic;color:var(--green)}
-.hero-btns{display:flex;flex-wrap:wrap;gap:16px}
-.hero-btns .btn{height:56px;padding:0 28px;font-size:17px}
 .btn-green{background:var(--green);color:var(--black);font-weight:600}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:var(--white);font-weight:500}
-.btn-ghost:hover{border-color:var(--white)}
 .forces{position:relative;margin:0 var(--gut);padding:32px 0 48px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column;gap:20px}
 .forces h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.1vw,44px);line-height:1.1;letter-spacing:-.01em}
 .forces h2 em{font-style:italic;color:var(--green)}
 .stats5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px}
 .stat{display:flex;flex-direction:column;gap:8px}
-.stat-k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
 .stat-n{font-family:var(--serif);font-size:clamp(40px,3.6vw,52px);line-height:1;color:var(--white)}
 .stat-n.g{color:var(--green)}
 .stat-d{font-size:14px;line-height:1.4;color:rgba(255,255,255,.65)}
@@ -198,9 +193,7 @@ em.g{font-style:italic;color:var(--deep)}
 .foot{flex-direction:column;gap:24px}
 }
 @media (max-width:480px){
-.nav-cta{padding:0 14px;font-size:11px}
 .logo{font-size:18px}
-.hero-btns .btn{flex:1 1 100%}
 .bio{flex-direction:column;gap:20px}
 }
 </style>
@@ -217,24 +210,18 @@ em.g{font-style:italic;color:var(--deep)}
 <a href="#pilot">The pilot</a>
 <a href="#lafamilia">LaFamilia</a>
 </nav>
-<a href="#support" class="btn nav-cta">Support the pilot</a>
 </header>
 <div class="hero-main wrap">
-<div class="hero-eyebrow">A charitable program of LaFamilia Foundation</div>
 <h1>We back side hustlers turning the AI labor shift into <em>generational wealth.</em></h1>
-<div class="hero-btns">
-<a href="#support" class="btn btn-green">Support the pilot</a>
-<a href="#pilot" class="btn btn-ghost">I'm a founder</a>
-</div>
 </div>
 <div class="forces">
 <h2>Five forces converging at once. <em>Latine founders</em> at the center of it all.</h2>
 <div class="stats5">
-<div class="stat"><span class="stat-k">01 · Cost curve</span><span class="stat-n">90%</span><span class="stat-d">Drop in AI prototype cost in 12 months. $500K to build is now under $50K.</span></div>
-<div class="stat"><span class="stat-k">02 · Labor</span><span class="stat-n">550,000</span><span class="stat-d">Tech layoffs, 2024 to 2026. Domain experts are free and already building.</span></div>
-<div class="stat"><span class="stat-k">03 · Formation</span><span class="stat-n g">+44%</span><span class="stat-d">Latine business formation vs. +4% nationally.</span></div>
-<div class="stat"><span class="stat-k">04 · Capital</span><span class="stat-n g">0.6%</span><span class="stat-d">of early-stage VC deals reached Latine founders in 2025, down from 2.6%.</span></div>
-<div class="stat"><span class="stat-k">05 · Demography</span><span class="stat-n">28–42</span><span class="stat-d">Peak founding age, with the largest college-educated Latine cohort inside it.</span></div>
+<div class="stat"><span class="stat-n">90%</span><span class="stat-d">Drop in AI prototype cost in 12 months. $500K to build is now under $50K.</span></div>
+<div class="stat"><span class="stat-n">550,000</span><span class="stat-d">Tech layoffs, 2024 to 2026. Domain experts are free and already building.</span></div>
+<div class="stat"><span class="stat-n g">+44%</span><span class="stat-d">Latine business formation vs. +4% nationally.</span></div>
+<div class="stat"><span class="stat-n g">0.6%</span><span class="stat-d">of early-stage VC deals reached Latine founders in 2025, down from 2.6%.</span></div>
+<div class="stat"><span class="stat-n">28–42</span><span class="stat-d">Peak founding age, with the largest college-educated Latine cohort inside it.</span></div>
 </div>
 <span class="source">Formation and capital: LBAN &amp; Stanford GSB, 11th Annual State of Latino Entrepreneurship, March 2026.</span>
 </div>
@@ -243,7 +230,6 @@ em.g{font-style:italic;color:var(--deep)}
 <main>
 <section id="engine" class="sec engine wrap">
 <div class="stack">
-<div class="eyebrow">01 · The recycling engine</div>
 <h2 class="h2">Five million dollars, deployed <em class="g">nearly nine times over.</em></h2>
 <p class="lede">A $3.1M pool funds the pilot's 31 founders. The same money, recovering against income, keeps going long after the 24-month pilot ends.</p>
 </div>
@@ -270,20 +256,19 @@ em.g{font-style:italic;color:var(--deep)}
 <circle cx="449" cy="478" r="34" fill="#00B993"/><text x="449" y="487" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="22" fill="#000000">3</text>
 <text x="449" y="544" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="16" font-weight="600" fill="#000000">Founder builds</text>
 <circle cx="191" cy="478" r="34" fill="#00B993"/><text x="191" y="487" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="22" fill="#000000">4</text>
-<text x="191" y="544" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="16" font-weight="600" fill="#000000">Income share</text>
+<text x="191" y="544" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="16" font-weight="600" fill="#000000">Commitment activates</text>
 <circle cx="111" cy="232" r="34" fill="#000000"/><text x="111" y="241" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="22" fill="#00B993">5</text>
 <text x="111" y="298" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="16" font-weight="600" fill="#000000">Capital recycles</text>
 </svg>
 </div>
 <div class="how-text">
-<div class="eyebrow">02 · How it works</div>
 <h2 class="h2">Each dollar is designed to fund more than one founder.</h2>
 <ol class="steps">
 <li><span class="mono">01</span><span>Donors and foundations give to a partnered donor-advised fund.</span></li>
 <li><span class="mono">02</span><span>The DAF sponsor invests in a founder through a Recoverable SAFE, $25K to $100K per founder.</span></li>
 <li><span class="mono">03</span><span>The founder builds, with mentors and follow-on investors from FounderFamilia, AngelFamilia and VCFamilia.</span></li>
 <li><span class="mono">04</span><span>Once their income clears an agreed floor, the founder shares 10% of it until a set cap is reached.</span></li>
-<li><span class="mono">05</span><span>That money goes back into the DAF and funds the next founder. It stays charitable the whole way.</span></li>
+<li><span class="mono">05</span><span>That money goes back into the DAF and funds the next founder.</span></li>
 </ol>
 </div>
 </section>
@@ -291,7 +276,6 @@ em.g{font-style:italic;color:var(--deep)}
 <section id="lafamilia" class="sec lafamilia dark wrap">
 <div class="grid12">
 <div class="laf-head">
-<div class="eyebrow">03 · LaFamilia Foundation</div>
 <h2 class="h2">Back one founder, and <em class="g">a thousand people show up.</em></h2>
 </div>
 <div class="laf-body">
@@ -318,7 +302,6 @@ em.g{font-style:italic;color:var(--deep)}
 
 <section class="sec built wrap">
 <div class="stack">
-<div class="eyebrow">04 · What we built</div>
 <h2 class="h2" style="max-width:900px">Three pieces that make the loop work.</h2>
 </div>
 <div class="cards3">
@@ -342,7 +325,6 @@ em.g{font-style:italic;color:var(--deep)}
 
 <section class="sec black grid12 wrap">
 <div class="terms-l">
-<div class="eyebrow">05 · The terms</div>
 <h2 class="h2">What a founder agrees to, in plain language.</h2>
 <p class="terms-q">The Recoverable SAFE recovers against a founder's income, not their ownership.</p>
 <p class="terms-p">We built these terms with founders. They were designed around people who support family, carry no inherited wealth and cannot afford a bad month.</p>
@@ -366,10 +348,9 @@ em.g{font-style:italic;color:var(--deep)}
 <section id="pilot" class="sec pilot wrap">
 <div class="grid12 pilot-head">
 <div class="stack">
-<div class="eyebrow">06 · The pilot</div>
 <h2 class="h2">24 months to prove the model before we scale it.</h2>
 </div>
-<p>About $3.1M of the $5M goes straight to founders. The rest builds the legal, servicing and data systems that let the money recycle for years.</p>
+<p>~70% of the fund size goes directly to founders. The rest builds the legal, servicing and data systems that let the money recycle for years.</p>
 </div>
 <ol class="timeline">
 <li><span class="mono">Months 1–6</span><span class="t">Legal structure, governance and SAFE documents</span></li>

@@ -172,10 +172,13 @@ button.btn{font:inherit;font-weight:600;border:0;cursor:pointer;width:100%}
 .pd-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
 .pd-close{flex-shrink:0;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:transparent;color:var(--black);font:400 20px/1 var(--sans);cursor:pointer}
 .pd-close:hover{background:var(--paper)}
-.pd-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:4px 32px 32px}
+.pd-body{flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:4px 32px 32px}
 .pd-body h2{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05;letter-spacing:-.01em}
-.pd-body p{margin-top:12px;font-size:16px;line-height:1.5;color:rgba(0,0,0,.72)}
-.pd-body .hs-form-frame{margin-top:24px}
+.pd-body p{position:relative;z-index:1;margin-top:12px;font-size:16px;line-height:1.5;color:rgba(0,0,0,.72)}
+/* HubSpot pads its form 40px on the sides and 56px on top inside the iframe; pull it out so fields line up with the headline and sit 16px below the intro */
+.pd-body .hs-form-frame{margin:-40px -40px 0}
+/* On phones pull left only, so the frame stays narrow enough for HubSpot's single-column layout */
+@media (max-width:480px){.pd-body .hs-form-frame{margin-right:0}}
 body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 
 /* Laptop and small desktop */
@@ -254,11 +257,11 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 <section id="engine" class="sec engine wrap">
 <div class="stack">
 <h2 class="h2">Five million dollars, deployed <em class="g">nearly nine times over.</em></h2>
-<p class="lede">A $3.1M pool funds the pilot's 31 founders. The same money, recovering against income, keeps going long after the 24-month pilot ends.</p>
+<p class="lede">This pool funds the pilot's initial cohort of 30+ founders. The same money, recovering against income, keeps going long after the 24-month pilot ends.</p>
 </div>
 <div class="bar" role="img" aria-label="Initial deployment is about 7% of the total capital deployed over the fund's life"><div class="bar-a"></div><div class="bar-b"></div></div>
 <div class="bignums">
-<div class="bignum"><span class="serif" style="color:var(--deep)">31</span><span class="d">funded by the pilot's initial<br>deployment of $3.1M</span></div>
+<div class="bignum"><span class="serif" style="color:var(--deep)">30+</span><span class="d">funded by the pilot's initial<br>deployment of $3.1M</span></div>
 <div class="bignum"><span class="serif">413</span><span class="d">more founders reached over the fund's<br>10-year life as that capital recycles</span></div>
 </div>
 <span class="note">Modeled base case, $5M model (9.13.26). Projections, not realized performance.</span>
@@ -302,7 +305,7 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 <h2 class="h2">Back one founder, and <em class="g">a thousand people show up.</em></h2>
 </div>
 <div class="laf-body">
-<p>FamiliaFund sits inside LaFamilia Foundation, a community of 1,000+ founders, operators, angels and investors across FounderFamilia, VCFamilia and AngelFamilia. It was built by and for Latine builders.</p>
+<p>FamiliaFund sits inside LaFamilia Foundation, a community of 1,000+ founders, operators, angels and investors across FounderFamilia, VCFamilia and AngelFamilia.</p>
 <p>When a founder needs advice, a warm intro or qualified leads, that request goes to a thousand vetted members who know them like <em>familia</em>. Every founder we back then refers the next one, so the network gets stronger with each check.</p>
 </div>
 </div>
@@ -314,11 +317,11 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 <div class="bios">
 <div class="bio">
 <img src="images/cheryl-campos.png" alt="Cheryl Campos" width="140" height="140" loading="lazy" decoding="async">
-<div class="bio-t"><span class="bio-n">Cheryl Campos</span><span class="bio-r">Co-Founder, FamiliaFund</span><span class="bio-d">Cofounder and CEO of LaFamilia Foundation. Previously Head of Venture Growth and Partnerships at Republic, employee #10 through unicorn. Lightspeed Scout. Harvard BA, Stanford GSB MBA.</span></div>
+<div class="bio-t"><span class="bio-n">Cheryl Campos</span><span class="bio-r">Co-GP, FamiliaFund</span><span class="bio-d">Cofounder and CEO of LaFamilia Foundation. Previously Head of Venture Growth and Partnerships at Republic, employee #10 through unicorn. Lightspeed Scout. Harvard BA, Stanford GSB MBA.</span></div>
 </div>
 <div class="bio">
 <img src="images/magda-guillen-swanson.png" alt="Magda Guillén Swanson" width="140" height="140" loading="lazy" decoding="async">
-<div class="bio-t"><span class="bio-n">Magda Guillén Swanson</span><span class="bio-r">Co-Founder, FamiliaFund</span><span class="bio-d">Fund structure, legal ops and philanthropic capital. 15+ years across private equity, venture and philanthropic finance. Former Innovation Lead at Vanguard Charitable. Harvard BA, LSE MSc.</span></div>
+<div class="bio-t"><span class="bio-n">Magda Guillén Swanson</span><span class="bio-r">Co-GP, FamiliaFund</span><span class="bio-d">Fund structure, legal ops and philanthropic capital. 15+ years across private equity, venture and philanthropic finance. Former Innovation Lead at Vanguard Charitable. Harvard BA, LSE MSc.</span></div>
 </div>
 </div>
 </section>
@@ -340,7 +343,7 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 </div>
 <div class="piece">
 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#018B5E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
-<h3>AI impact reporting</h3>
+<h3>AI Impact Reporting</h3>
 <p>Founders send a quick WhatsApp voice note in English or Spanish. We turn that into IRIS+ and SDG metrics, with a goal of 60% less reporting time.</p>
 </div>
 </div>
@@ -350,7 +353,7 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 <div class="terms-l">
 <h2 class="h2">What a founder agrees to, in plain language.</h2>
 <p class="terms-q">The Recoverable SAFE recovers against a founder's income, not their ownership.</p>
-<p class="terms-p">We built these terms with founders. They were designed around people who support family, carry no inherited wealth and cannot afford a bad month.</p>
+<p class="terms-p">We built these terms with founders. They were designed around people who support family, build without inherited wealth and need room to pause when income dips.</p>
 <div class="decide">
 <span class="mono">Decision time target</span>
 <span class="serif">Under 3 weeks</span>
@@ -379,12 +382,12 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 <li><span class="mono">Months 1–6</span><span class="t">Legal structure, governance and SAFE documents</span></li>
 <li><span class="mono">Month 3</span><span class="t">Core team and service providers in place</span></li>
 <li><span class="mono">Months 4–10</span><span class="t">AI reporting system and servicing live</span></li>
-<li class="on"><span class="mono">Months 6–18</span><span class="t">31 founders funded</span></li>
+<li class="on"><span class="mono">Months 6–18</span><span class="t">30+ founders funded</span></li>
 <li><span class="mono">Months 15–24</span><span class="t">Public learning report</span></li>
 <li><span class="mono">Months 16–24</span><span class="t">Early commitments for Fund 1</span></li>
 </ol>
 <div class="stats4">
-<div><span class="serif">31</span><span class="d">founder investments in the pilot</span></div>
+<div><span class="serif">30+</span><span class="d">founder investments in the pilot</span></div>
 <div><span class="serif">80%+</span><span class="d">accuracy target for AI-extracted metrics</span></div>
 <div><span class="serif">60%</span><span class="d">less reporting time for founders, targeted</span></div>
 <div><span class="serif">1</span><span class="d">open playbook any fund, DAF sponsor or CDFI can reuse</span></div>
@@ -392,7 +395,7 @@ body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 </section>
 
 <section id="support" class="sec cta wrap">
-<h2 class="h2">Help us write the first 31 checks.</h2>
+<h2 class="h2">Help us write the first checks.</h2>
 <div class="cards3">
 <div class="card k">
 <span class="mono">Funders</span>

@@ -42,6 +42,7 @@ em.g{font-style:italic;color:var(--deep)}
 .grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:2px;transition:filter .15s,background-color .15s}
 .btn:hover{filter:brightness(1.08)}
+button.btn{font:inherit;font-weight:600;border:0;cursor:pointer;width:100%}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;display:flex;flex-direction:column}
@@ -163,6 +164,20 @@ em.g{font-style:italic;color:var(--deep)}
 .foot a{color:var(--green);text-decoration:none;font-family:var(--mono);white-space:nowrap}
 .foot a:hover{text-decoration:underline}
 
+/* Proposal pop-up */
+#proposal-dialog{padding:0;border:0;width:calc(100% - 32px);max-width:560px;max-height:calc(100vh - 64px);border-radius:12px;background:var(--white);color:var(--black);font-family:var(--sans);overflow:hidden}
+#proposal-dialog[open]{display:flex;flex-direction:column}
+#proposal-dialog::backdrop{background:rgba(10,10,10,.72)}
+.pd-head{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 16px 0 32px}
+.pd-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
+.pd-close{flex-shrink:0;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:transparent;color:var(--black);font:400 20px/1 var(--sans);cursor:pointer}
+.pd-close:hover{background:var(--paper)}
+.pd-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:4px 32px 32px}
+.pd-body h2{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05;letter-spacing:-.01em}
+.pd-body p{margin-top:12px;font-size:16px;line-height:1.5;color:rgba(0,0,0,.72)}
+.pd-body .hs-form-frame{margin-top:24px}
+body.pd-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
+
 /* Laptop and small desktop */
 @media (max-width:1100px){
 :root{--gut:48px}
@@ -191,6 +206,14 @@ em.g{font-style:italic;color:var(--deep)}
 .row{flex-direction:column;gap:6px}
 .row-v{text-align:left}
 .foot{flex-direction:column;gap:24px}
+}
+/* Pop-up becomes a full-screen sheet on phones, including landscape */
+@media (max-width:768px),(max-height:500px){
+#proposal-dialog{width:100vw;max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;border-radius:0}
+.pd-head{padding:max(8px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));border-bottom:1px solid rgba(0,0,0,.08)}
+.pd-close{margin-right:-10px}
+.pd-body{padding:20px max(16px,env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.pd-body h2{font-size:32px}
 }
 @media (max-width:480px){
 .logo{font-size:18px}
@@ -350,7 +373,7 @@ em.g{font-style:italic;color:var(--deep)}
 <div class="stack">
 <h2 class="h2">24 months to prove the model before we scale it.</h2>
 </div>
-<p>~70% of the fund size goes directly to founders. The rest builds the legal, servicing and data systems that let the money recycle for years.</p>
+<p>About two-thirds of the fund size goes directly to founders. The rest builds the legal, servicing and data systems that let the money recycle for years.</p>
 </div>
 <ol class="timeline">
 <li><span class="mono">Months 1–6</span><span class="t">Legal structure, governance and SAFE documents</span></li>
@@ -374,7 +397,7 @@ em.g{font-style:italic;color:var(--deep)}
 <div class="card k">
 <span class="mono">Funders</span>
 <span class="d">Back the pilot with a grant, a recoverable grant or a program-related investment.</span>
-<a href="mailto:hola@familiafund.vc?subject=FamiliaFund%20proposal%20request" class="btn btn-green">Request the proposal</a>
+<button type="button" class="btn btn-green" aria-haspopup="dialog" aria-controls="proposal-dialog" data-open-proposal>Get the proposal</button>
 </div>
 <div class="card">
 <span class="mono">Founders</span>
@@ -394,6 +417,62 @@ em.g{font-style:italic;color:var(--deep)}
 <span>FamiliaFund is a charitable program of LaFamilia Foundation, not a separate legal entity. The pilot admits no return-seeking capital, pays no carry and makes no distributions to any private person. All recovered amounts are charitable assets held under a recycling lock. Nothing here is an offer to sell securities.</span>
 <a href="mailto:hola@familiafund.vc">hola@familiafund.vc</a>
 </footer>
+
+<dialog id="proposal-dialog" aria-labelledby="proposal-title">
+<div class="pd-head">
+<span class="pd-eyebrow">For funders</span>
+<button type="button" class="pd-close" aria-label="Close">✕</button>
+</div>
+<div class="pd-body">
+<h2 id="proposal-title">Get the pilot proposal</h2>
+<p>Tell us a little about you and we'll email you a private link to the full proposal.</p>
+<script src="https://js.hsforms.net/forms/embed/48958275.js" defer></script>
+<div class="hs-form-frame" data-region="na1" data-form-id="8bfda8fc-7de9-4f06-ad2f-cbf0b9d2296b" data-portal-id="48958275"></div>
+</div>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('proposal-dialog');
+  if(!dlg||typeof dlg.showModal!=='function')return;
+  var body=document.body,opener=null,scrollY=0,downOnBackdrop=false;
+  var mobile=window.matchMedia('(max-width:768px),(max-height:500px)'),vv=window.visualViewport;
+
+  // Keep the sheet sized to the visible area so the phone keyboard never covers the form
+  function fit(){dlg.style.height=(dlg.open&&mobile.matches&&vv)?vv.height+'px':''}
+
+  function open(){
+    if(dlg.open)return;
+    opener=document.activeElement;
+    scrollY=window.scrollY;
+    body.style.top=-scrollY+'px';
+    body.classList.add('pd-locked');
+    dlg.showModal();
+    fit();
+  }
+  function onClose(){
+    body.classList.remove('pd-locked');
+    body.style.top='';
+    window.scrollTo({top:scrollY,left:0,behavior:'instant'});
+    dlg.style.height='';
+    if(location.hash==='#proposal')history.replaceState(null,'',location.pathname+location.search);
+    if(opener&&opener.focus)opener.focus({preventScroll:true});
+    opener=null;
+  }
+
+  document.querySelectorAll('[data-open-proposal]').forEach(function(b){b.addEventListener('click',open)});
+  dlg.querySelector('.pd-close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('close',onClose);
+  // Backdrop click: only when the press both starts and ends outside the card
+  dlg.addEventListener('pointerdown',function(e){downOnBackdrop=e.target===dlg});
+  dlg.addEventListener('click',function(e){if(downOnBackdrop&&e.target===dlg)dlg.close();downOnBackdrop=false});
+  if(vv){vv.addEventListener('resize',fit)}
+
+  // Deep link: familiafund.vc/#proposal
+  if(location.hash==='#proposal')open();
+  window.addEventListener('hashchange',function(){if(location.hash==='#proposal')open()});
+})();
+</script>
 
 </body>
 </html>
